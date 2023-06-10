@@ -31,6 +31,7 @@ function processResolution()
     
     }else{
         $_SESSION['message'] = 'Wrong login or password';
+        
         header('Location: index.php');
     }
     

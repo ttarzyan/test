@@ -28,12 +28,6 @@ if (isset($_POST['login'])) {
         <input type="password" name="password" placeholder="password">
         <button type="submit" name="resolution_submit">Sign in</button> 
     
-        <p>
-            <?php
-            echo $_SESSION['message'];
-            unset($_SESSION['message']);
-            ?>
-        </p>
 <?php
 
     
@@ -73,7 +67,7 @@ if (isset($_POST['register'])) {
 
 
 ?>
-
+    </form>
 
 </body>
 </html>

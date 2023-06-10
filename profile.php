@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'show.php';
+require_once 'show.php'
 
 ?>
 <!doctype html>
@@ -23,7 +23,7 @@ include 'show.php';
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a>
-        <img src="uploads/<?= $_SESSION['user']['avatar'] ?>" alt="accountPhoto" width="40" height="34">
+        <img src="uploads/<?= $_SESSION['user']['avatar'] ?>" alt="accountPhoto" width="50" height="44">
       </a>
       <a class="navbar-brand" href="#"><?= ($_SESSION['user']['firstname']) ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,16 +40,17 @@ include 'show.php';
   </nav>
 
   <form action="profprocess.php" method="post" enctype="multipart/form-data">
-    <label>Comment</label>
-    <input type="text" name="comment">
-    <label>picture</label>
-    <input type="file" name="photo">
+    <label>Comment</label><br>
+    <input type="text" name="comment"><br>
+    <label>picture</label><br><br>
+    <input type="file" name="photo"><br><br>
     <button type="submit" name="registration_submit" >add</button>
   </form>
 
   <div class="text-center">
   
-  <img src="..." class="rounded" alt="...">
+  <img src="uploads/<?=$img[2]?>" class="rounded" alt="..." width="600" height="450">
+  <span><?=$img[1]?></span>
   
 </div>
 

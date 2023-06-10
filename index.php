@@ -14,9 +14,11 @@ session_start();
 
 <body>
     <?php
-    
-    echo $_SESSION['message'];
-
+    if (empty($_SESSION)) {
+      null;
+    }else{
+        echo $_SESSION['message'];;
+    }
 
     ?>
 
