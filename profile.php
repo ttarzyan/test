@@ -12,6 +12,11 @@ session_start();
 </head>
 <body>
 <h1>hellooooo</h1>
+<?php
+echo $_SESSION['message'];
+print_r($_FILES['avatar']);
+
+?>
    
 </body>
 </html>

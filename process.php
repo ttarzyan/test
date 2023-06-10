@@ -56,11 +56,17 @@ function processRegistration()
     $password_confirm = $_POST['password_confirm'];
     
     if ($password === $password_confirm) {
-        $path = 'uploads/' . time() . $_FILES['avatar']['name'];
-        if(!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
-            $_SESSION['message'] = 'Image uploaded error';
-            header('Location: index.php');
+        if(!empty($_FILES['avatar'])){
+            $file = $_FILES['avatar'];
+            $name = time() . $file['name'];
+            $path = __DIR__ . '/uploads/' . $name;
+
+            if(!move_uploaded_file($file['tmp_name'], $path)){
+                echo 'error photo';
+            }
         }
+
+    
     
         $password = md5($password);
     
