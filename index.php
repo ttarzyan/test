@@ -15,7 +15,7 @@ session_start();
 <body>
     <?php
     
-    
+    echo $_SESSION['message'];
 
 
     ?>

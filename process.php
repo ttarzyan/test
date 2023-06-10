@@ -58,8 +58,8 @@ function processRegistration()
     if ($password === $password_confirm) {
         if(!empty($_FILES['avatar'])){
             $file = $_FILES['avatar'];
-            $name = time() . $file['name'];
-            $path = __DIR__ . '/uploads/' . $name;
+            $photo = time() . $file['name'];
+            $path = __DIR__ . '/uploads/' . $photo;
 
             if(!move_uploaded_file($file['tmp_name'], $path)){
                 echo 'error photo';
@@ -70,9 +70,9 @@ function processRegistration()
     
         $password = md5($password);
     
-        mysqli_query($connect, "INSERT INTO `users`( `firstname`, `lastname`, `login`, `email`, `password`, `avatar`) VALUES ('$firstName','$lastName','$login','$email','$password','$path')");
+        mysqli_query($connect, "INSERT INTO `users`( `firstname`, `lastname`, `login`, `email`, `password`, `avatar`) VALUES ('$firstName','$lastName','$login','$email','$password','$photo')");
         $_SESSION['message'] = 'Registration completed successfully';
-        header('Location: profile.php');
+        header('Location: index.php');
     
     } else {
         $_SESSION['message'] = 'Password mismatch';
