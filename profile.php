@@ -65,8 +65,7 @@ require_once 'show.php'
   }
   session_abort();
 
-  while($user_all = mysqli_fetch_row($check_user)) 
-  {
+
   ?>
 
 <table>
@@ -76,14 +75,48 @@ require_once 'show.php'
     <th>Email</th>
     <th>Photo</th>
   </tr>
+  <?php
+  while($user_all = mysqli_fetch_row($check_user)) 
+  {
+  ?>
  <tr>
   <td><?=$user_all[1]?></td>
   <td><?=$user_all[2]?></td>
   <td><?=$user_all[4]?></td>
   <td><img height="60" width="60" src="uploads/<?=$user_all[6]?>"> </td>
+  <td>
+    <form action="profile.php" method="post">
+    <input type="hidden" name="firstName" value="<?=$user_all[1]?>">
+      <input type="hidden" name="email" value="<?=$user_all[4]?>">
+    <input type="submit" value="send email">
+    </form>
+  </td>
  </tr>
 <?php } ?>
 </table>
+<div>
+  <?php
+if(isset($_POST['email'])){
+  ?>
+  <form action="sendEmail.php" method="POST">
+    <label for="name">name:</label>
+    <input type="text" name="name" value="<?= ($_SESSION['user']['firstname']) ?>"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="hiddeng" name="email" value="<?=$_POST['email']?>"><br><br>
+
+    <label for="message">message:</label><br>
+    <textarea name="message" id="message" cols="30" rows="10" required></textarea><br><br>
+
+    <input type="submit" value="SEND">
+</form>
+<?php
+
+}
+
+
+  ?>
+</div>
 
 </body>
 
