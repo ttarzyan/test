@@ -44,20 +44,20 @@ require_once 'show.php'
     <input type="text" name="comment"><br>
     <label>picture</label><br><br>
     <input type="file" name="photo"><br><br>
-    <button type="submit" name="registration_submit" >add</button>
+    <button type="submit" name="registration_submit">add</button>
   </form>
 
   <div class="text-center">
-  
-  <img src="uploads/<?=$img[2]?>" class="rounded" alt="..." width="600" height="450">
-  <span><?=$img[1]?></span>
-  
-</div>
+
+    <img src="uploads/<?= $img[2] ?>" class="rounded" alt="..." width="600" height="450">
+    <span><?= $img[1] ?></span>
+
+  </div>
 
   <?php
-   //$connect = mysqli_connect('localhost','root', '', 'test-db');
+  //$connect = mysqli_connect('localhost','root', '', 'test-db');
 
-  
+
 
 
   if (isset($_POST['exit'])) {
@@ -65,9 +65,25 @@ require_once 'show.php'
   }
   session_abort();
 
+  while($user_all = mysqli_fetch_row($check_user)) 
+  {
   ?>
 
-
+<table>
+  <tr>
+    <th>Name</th>
+    <th>L Name</th>
+    <th>Email</th>
+    <th>Photo</th>
+  </tr>
+ <tr>
+  <td><?=$user_all[1]?></td>
+  <td><?=$user_all[2]?></td>
+  <td><?=$user_all[4]?></td>
+  <td><img height="60" width="60" src="uploads/<?=$user_all[6]?>"> </td>
+ </tr>
+<?php } ?>
+</table>
 
 </body>
 

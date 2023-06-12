@@ -19,4 +19,4 @@ $connect = mysqli_connect('localhost', 'root', '', 'test-db');
         
         header('Location: profile.php');
 
-       
+    

@@ -10,10 +10,11 @@ $check_comment = mysqli_query($connect, "SELECT * FROM `comment` ");
 
 $res = mysqli_fetch_all($check_comment);
 foreach($res as $img){
-    echo "<pre>";
-     echo ($img[2]);
-     echo "</pre>";
+   
 }
+
+$check_user = mysqli_query($connect, "SELECT * FROM `users` ");
+
 
 // }
 ?>
